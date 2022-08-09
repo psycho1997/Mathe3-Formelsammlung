@@ -156,6 +156,12 @@
        dann sind $(y_i, x_i)$ Stützpunkte für $f^{-1}$ und eine Approximation kann durch Interpolation dieser
        gewonnen werden.
 
+
+       Hinweis:\\
+       $f$ ist auf Wertebereich von $x$ stetig differenzierbar und aufgrund der Ableitung streng monoton wachsend $\Rightarrow$ injektiv\\
+       Die Grenzen von x müssen genau  auf die Grenzen von y abbilden, da dann (wegen monoton wachsend) die gesamte Zielmenge getroffen wird $\Rightarrow$ surjektiv\\
+       $\Rightarrow$ bijektiv
+
        \subsection{Spline-Interpolation}
             \begin{definition}
                 Eine Splinefunktion der Ordnung $k$ zur Zerlegung $\Delta$ ist eine Funktion $s:[a,b]\rightarrow \mathbb{R}$ mit folgenden Eigenschaften:
@@ -645,8 +651,8 @@
                 \textbf{Beispiele hierfür sind}:
                 \begin{align*}
                     ||x||_2 &= \sqrt{x^Tx} & \text{induziert} &&||A||_2 &= \sqrt{\lambda_{max}(A^TA)}\\
-                    ||x||_1 &= \sum^n_{i=1}|x_i| & \text{induziert} && ||A||_1 &= \max_{j=1,\dots,n} \sum^n_{i=1} |a_{ij}| & \text{(Spaltensummennorm)}\\
-                    ||x||_\infty &= \max_{i=1,\dots,n}|x_i| & \text{induziert} && ||A||_\infty &= \max_{i=1,\dots,n} \sum^n_{j=1} |a_{ij}| & \text{(Zeilensummennorm)}\\
+                    ||x||_1 &= \sum^n_{i=1}|x_i| & \text{induziert} && ||A||_1 &= \max_{j=1,\dots,n} \sum^n_{i=1} |a_{ij}| & \text{(Spaltensummen Norm = ``größte'' Spalte)}\\
+                    ||x||_\infty &= \max_{i=1,\dots,n}|x_i| & \text{induziert} && ||A||_\infty &= \max_{i=1,\dots,n} \sum^n_{j=1} |a_{ij}| & \text{(Zeilensummen Norm = ``größte'' Zeile)}\\
                 \end{align*}
             \end{definition}
             \begin{definition}
@@ -1027,7 +1033,7 @@
                         \item Das aus zwei Ereignissen A und B zusammengesetzte Ereignis $A\cup B$ tritt ein, falls ein Ergebnis
                         $\omega: \omega \in A \vee \omega \in B$ beobachtet wird
                         \item Das Ereignis $A \cap B$ tritt ein, falls ein Ergebnis
-                        $\omega: \omega \in A \wedge \omega \in B$ beobachtet wird
+                        $\omega: \omega \in A \wedge \omega \in B$ beobachtet wird  (A \& B wird gleichzeitig beobachtet)
                         \item $A^c = \Omega \backslash A$ heißt zu A komplementäres Ereignis
                         \item Zwei Ereignisse A und B heißen unvereinbar, falls $A\cap B = \emptyset$
                         \item $\emptyset$ heißt unmögliches Ereignis und $\Omega$ sicheres Ereignis
@@ -1249,7 +1255,7 @@
             \begin{equation*}
                 E(X) = \sum_i x_i P(X=x_i)
             \end{equation*}
-            Erwartungswert von X falls $\Sigma_i |x_i| P(X=x_i) < \infty$\\
+            Erwartungswert von X falls $\Sigma_i |x_i| P(X=x_i) < \infty$. Enspricht arithmetischem Mittel, wenn Warscheinlichkeit für alle $x_i$ gleich ist\\
             Ist X eine stetig verteilte Zufallsvariable mit Dichte $f$ so heißt
             \begin{equation*}
                 E(X) = \int_{-\infty}^\infty x f(x) dx 
